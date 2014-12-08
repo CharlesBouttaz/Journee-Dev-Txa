@@ -6,7 +6,7 @@ import com.thoughtworks.xstream.XStream;
 
 public class GildedRose {
 
-	private List<Item> items = null;
+    private List<Item> items = null;
     public String externalCallParams;
 
     public List<Item> getItems() {
@@ -14,13 +14,13 @@ public class GildedRose {
     }
 
     /**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+     * @param args
+     */
+    public static void main(String[] args) {
         final GildedRose gildedRose = new GildedRose();
         gildedRose.createItems();
         gildedRose.updateQuality();
-}
+    }
 
     public void createItems() {
         System.out.println("OMGHAI!");
@@ -34,90 +34,68 @@ public class GildedRose {
     }
 
 
-    public void updateQuality()
-    {
-        for (int i = 0; i < items.size(); i++)
-        {
-            if ((!"Aged Brie".equals(items.get(i).getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) 
-            {
-                if (items.get(i).getQuality() > 0)
-                {
-                    if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
-                    {
-                        items.get(i).setQuality(items.get(i).getQuality() - 1);
-                    }
+    public void updateQuality() {
+        for (Item item : items) {
+            if ("Sulfuras, Hand of Ragnaros".equals(item.getName())) {
+                continue;
+            } else if ("Aged Brie".equals(item.getName())) {
+                increaseQuantity(item);
+                if (isExpired(item)) {
+                    increaseQuantity(item);
                 }
-            }
-            else
-            {
-                if (items.get(i).getQuality() < 50)
-                {
-                    items.get(i).setQuality(items.get(i).getQuality() + 1);
-
-                    if ("Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
-                    {
-                        if (items.get(i).getSellIn() < 11)
-                        {
-                            if (items.get(i).getQuality() < 50)
-                            {
-                                items.get(i).setQuality(items.get(i).getQuality() + 1);
-                            }
-                        }
-
-                        if (items.get(i).getSellIn() < 6)
-                        {
-                            if (items.get(i).getQuality() < 50)
-                            {
-                                items.get(i).setQuality(items.get(i).getQuality() + 1);
-                            }
-                        }
-                    }
+                decreaseSellIn(item);
+            } else if ("Backstage passes to a TAFKAL80ETC concert".equals(item.getName())) {
+                increaseQuantity(item);
+                if (item.getSellIn() < 11) {
+                    increaseQuantity(item);
                 }
-            }
-
-            if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
-            {
-                items.get(i).setSellIn(items.get(i).getSellIn() - 1);
-            }
-
-            if (items.get(i).getSellIn() < 0)
-            {
-                if (!"Aged Brie".equals(items.get(i).getName()))
-                {
-                    if (!"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
-                    {
-                        if (items.get(i).getQuality() > 0)
-                        {
-                            if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
-                            {
-                                items.get(i).setQuality(items.get(i).getQuality() - 1);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        items.get(i).setQuality(items.get(i).getQuality() - items.get(i).getQuality());
-                    }
+                if (item.getSellIn() < 6) {
+                    increaseQuantity(item);
                 }
-                else
-                {
-                    if (items.get(i).getQuality() < 50)
-                    {
-                        items.get(i).setQuality(items.get(i).getQuality() + 1);
-                    }
+                if (isExpired(item)) {
+                    item.setQuality(0);
                 }
+                decreaseSellIn(item);
+            } else {
+                decreaseQuantity(item);
+                if (isExpired(item)) {
+                    decreaseQuantity(item);
+                }
+                decreaseSellIn(item);
             }
-            externalCall(i);
+            externalCall(item);
         }
     }
 
-    private void externalCall(int i) {
+    private boolean isExpired(Item item) {
+        return item.getSellIn() <= 0;
+    }
+
+    private void decreaseQuantity(Item item) {
+        if (item.getQuality() > 0) {
+            item.setQuality(item.getQuality() - 1);
+        }
+    }
+
+    private void decreaseSellIn(Item item) {
+        item.setSellIn(item.getSellIn() - 1);
+    }
+
+    private void increaseQuantity(Item item) {
+        if (item.getQuality() < 50) {
+            item.setQuality(item.getQuality() + 1);
+        }
+    }
+
+    private void externalCall(Item item) {
         final GildedRoseService gildedRoseService = new GildedRoseService();
-        if (items.get(i).getQuality() < 2) {
-            gildedRoseService.orderGoods(items.get(i));
+        if (item.getQuality() < 2) {
+            int nbGoods = 5;
+            gildedRoseService.orderGoods(item, nbGoods);
             //Serialize side effects
             final XStream xStream = new XStream();
-            externalCallParams = xStream.toXML(items.get(i));
+            externalCallParams = xStream.toXML(item);
+            externalCallParams.concat(xStream.toXML(nbGoods));
         }
     }
 

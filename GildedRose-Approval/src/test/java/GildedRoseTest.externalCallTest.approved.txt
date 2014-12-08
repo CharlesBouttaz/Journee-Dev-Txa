@@ -1,14 +1,14 @@
-Items[0] = <Item>
+Ordered Items[0] = <Item>
   <name>Aged Brie</name>
   <sellIn>1</sellIn>
   <quality>1</quality>
 </Item>
-Items[1] = <Item>
+Ordered Items[1] = <Item>
   <name>Aged Brie</name>
   <sellIn>1</sellIn>
   <quality>1</quality>
 </Item>
-Items[2] = <Item>
+Ordered Items[2] = <Item>
   <name>Aged Brie</name>
   <sellIn>1</sellIn>
   <quality>1</quality>

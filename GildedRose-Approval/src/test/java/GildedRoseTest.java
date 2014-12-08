@@ -14,7 +14,7 @@ public class GildedRoseTest {
 
         final List<String> res = new ArrayList<String>();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 20; i++) {
             gildedRose.updateQuality();
             res.add(gildedRose.getItems().toString());
         }
@@ -34,7 +34,7 @@ public class GildedRoseTest {
             res.add(gildedRose.externalCallParams);
         }
 
-        Approvals.verifyAll("Items", res.toArray());
+        Approvals.verifyAll("Ordered Items", res.toArray());
     }
 
     public void parameterisedTests() {

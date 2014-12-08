@@ -1,5 +1,5 @@
 public class GildedRoseService {
-    public void orderGoods(Item item) {
-        System.out.println("Connecion à un service externe, (ou DB) pour commander");
+    public void orderGoods(Item item, int nbGoods) {
+        System.out.println("Order : " + item.getName() + " nb : " + nbGoods);
     }
 }
