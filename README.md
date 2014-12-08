@@ -5,7 +5,6 @@ Présentation jouréne dev :
 - Retour de conf : Blend + Agile Grenoble 
 - Kata Gilded Roses + Golden Master
 
-:
 Refs Golden Master 
 - Repo : https://github.com/martinsson/EncodeAudioLegacy
 - Slides : http://fr.slideshare.net/sanlaville/20140530-itakegolden-master
