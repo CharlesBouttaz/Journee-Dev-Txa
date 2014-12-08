@@ -8,7 +8,7 @@ import org.junit.Test;
 public class GildedRoseTest {
 
 	@Test
-	public void testTheTruth() throws Exception {
+	public void goldenMasterShouldBeTheSame() throws Exception {
         final GildedRose gildedRose = new GildedRose();
         gildedRose.createItems();
 
@@ -37,13 +37,11 @@ public class GildedRoseTest {
         Approvals.verifyAll("Items", res.toArray());
     }
 
-    @Test
     public void parameterisedTests() {
         //LegacyApprovals.LockDown(object, "method", param1Range, param2range);
         // See https://www.youtube.com/watch?v=EJ1tRFEOkcw
     }
 
-    @Test
     public void binaryCompareTest() {
         // PDF
 //        Approvals.verify(byte[])
