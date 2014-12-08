@@ -1,0 +1,31 @@
+{
+  "name": "ruban",
+  "author": {
+    "name": "Loïc Frering",
+    "email": "loic.frering@gmail.com"
+  },
+  "version": "0.1.2",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.0",
+    "keymaster": "latest",
+    "hammerjs": "~1.0.3",
+    "normalize-css": "~2.1.0",
+    "font-awesome": "~3.1.0",
+    "highlightjs": "~7.3.0"
+  },
+  "gitHead": "b39dce793aae9da983c9216d92e478b0fd04b0a2",
+  "readme": "Ruban\n=====\n\nA simple framework for building nice HTML5 based presentations.\n\nDocumentation\n-------------\n\nYou'll find the documentation on a Ruban: http://loicfrering.github.io/ruban/.\n\nChangelog\n---------\n\n### 0.1.2\n\n* Table of Contents automatic generation.\n* StyleSheet dedicated to print media.\n* Support adding extra details in <detail> tags.\n\n### 0.1.1\n\n* Support pagination.\n* Fix a resizing issue.\n\n### 0.1.0\n\n* Initial release.\n\nLicense\n-------\n\nCopyright (c) 2013 [Loïc Frering](https://github.com/loicfrering), licensed\nunder the MIT license. See the LICENSE file for more informations.\n",
+  "readmeFilename": "README.md",
+  "_id": "ruban@0.1.2",
+  "description": "Ruban =====",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/loicfrering/ruban"
+  }
+}

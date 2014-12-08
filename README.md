@@ -1,4 +1,6 @@
 Journee-Dev-Txa
 ===============
 
-Dev Web + Golden Master
+Présentation jouréne dev : 
+- Retour de conf : Blend + Agile Grenoble 
+- Kata Gilded Roses + Golden Master

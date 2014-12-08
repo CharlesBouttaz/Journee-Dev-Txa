@@ -1,0 +1,7 @@
+{
+  "name": "ruban",
+  "version": "0.0.0",
+  "dependencies": {
+    "ruban": "~0.1.2"
+  }
+}

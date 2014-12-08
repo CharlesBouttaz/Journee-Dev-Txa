@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jouréne devs</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="components/normalize-css/normalize.css" />
+  <link rel="stylesheet" href="components/font-awesome/build/assets/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="components/highlightjs/styles/tomorrow.css" />
+  <link rel="stylesheet" href="components/ruban/dist/ruban.min.css" />
+  <link rel="stylesheet" href="css/dev.css" />
+  <link rel="stylesheet" href="components/ruban/dist/ruban-print.min.css" media="print" />
+</head>
+<body>
+	<section id="title">
+		<ul class="steps">
+			<li>
+				<h1><strong>I. What's up<br> in da Web ?</strong></h1>
+			</li>
+			<li>
+				<h1><strong>II. Golden master</strong></h1>
+			</li>
+		</ul>
+	</section>
+	<section id="history">
+      <h1>What's up in da Web ?</h1>
+      <ul class="steps">
+        <li>1994 – HTML</li>
+        <li>1996 – PHP</li>
+        <li>2000 - JS & CSS</li>
+        <li>2004 - JS le retour : AJAX</li>
+        <li>2014 - Webapps <br/>
+        <i class="icon-arrow-right"></i>
+        Backbone, Angular, Ember, ExtJS ;)</li>
+      </ul>
+    </section>
+	<section id="backtofront">
+		<h1>From backend <br> to frontend</h1>
+      	<h2>Browser is a Virtual Machine</h2>
+    </section>
+    <section id="buildtheweb">
+		<h1>L'histoire se répète</h1>
+		<ul class="steps">
+			<li>
+				Complexité : Back <i class="icon-arrow-right"></i> Front
+			</li>
+			<li>
+				<h2>Désormais le web ça se <strong>build<strong/></h2>
+			</li>
+		</ul>
+    </section>
+    <section id="buildtools">
+		<h1>Asset pipieline</h1>
+		<ul class="steps">
+			<li>
+				<i class="icon-ok"></i>
+				Gestion des dépendances (Browserify)
+			</li>
+			<li>
+				<i class="icon-ok"></i>
+				Uglify (JS + CSS)
+			</li>
+			<li>
+				<i class="icon-ok"></i>
+				Minify (JS + CSS + Images)
+			</li>
+			<li>
+				<i class="icon-ok"></i>
+				Concat
+			</li>
+			<li>
+				<i class="icon-ok"></i>
+				Rename files with hashcode (cache busting)
+			</li>
+			<li><i class="icon-cogs"></i>
+				Automatisation : Brunch.io (+Watcher)
+			</li>
+		</ul>
+    </section>
+    <section id="debugtoday">
+		<h1>Le dev front aujourd'hui</h1>
+		<img src="images/porteneuve-dev-frontend-today.png">
+    </section>
+    <section id="solLivereload">
+    	<h1>Solution 1</h1>
+    	<ul class="steps">
+			<li>
+				<i class="icon-ok"></i>
+				"Live reload" ou "Emmet livestyle" :<br>
+		 Surveille les modifs des sources et réinjecte dans le browser
+			</li>
+			<li>
+				<i class="icon-warning-sign"></i>
+				Aller & retours browser / IDE
+			</li>
+		</ul>
+    </section>
+    <section id="injection">
+    	<h1>Solution 2</h1>
+    	<ul class="steps">
+			<li>
+				<i class="icon-ok"></i>
+				 Injection JS (Chrome : Hot-swapp)
+			</li>
+			<li>
+				<i class="icon-ok"></i>
+				 Chrome devtools Workspaces
+			</li>
+			<li>
+				<i class="icon-arrow-right"></i>
+				on peut éditer dans les DevTools en live et la source est automatiquement sauvegardée
+			</li>
+			<li>
+				<i class="icon-warning-sign"></i>
+				Le build modifie les sources ! <br> pas moyen d'associer sources & sources buildées
+			</li>
+		</ul>
+    </section>
+    <section id="sourcemaps">
+		<h1>Sourcemaps</h1>
+		<ul class="steps">
+			<li>
+				<i class="icon-ok"></i>
+				 Fichiers produits par une <strong>phase de build</strong> (ex. transpiling, concaténation, minification…) permettant de <strong>faire le lien</strong>, entre les contenus des <strong>fichiers originaux</strong> et le résultat final.
+			</li>
+			<li>
+				<i class="icon-warning-sign"></i>
+				La modification de la source recharge la page
+			</li>
+		</ul>
+    </section>
+    <section id="FB-FLO">
+		<h1>Sourcemaps</h1>
+		<p>"FB-FLO", "TINCR" : server proxy node qui watch les modifs et les injecte directement dans la runtime JS et inversement</p>
+    </section>
+	<section id="introGM">
+		<h1>Golden Master</h1>
+		<ul class="steps">
+			<li>
+				<i class="icon-ok"></i>
+				 Technique de refactoring de code legacy
+			</li>
+			<li>
+				<i class="icon-ok"></i>
+				 Golden master = fichier de référence
+			</li>
+		</ul>
+    </section>
+    <section id="pourquoiGM">
+		<h1>Pourquoi ?</h1>
+		<h2>Tests maintenables</h2>
+		<ul class="steps">
+			<li>
+				<i class="icon-warning-sign"></i>
+				Tests long à écrire
+			</li>
+			<li>
+				<i class="icon-warning-sign"></i>
+				 Tests haut niveau long a executer
+			</li>
+			<li>
+				<i class="icon-warning-sign"></i>
+				 Tests unitaire : forte adhérence au code
+			</li>
+		</ul>
+    </section>
+    <section id="solutionGM">
+		<h1>Solution</h1>
+		<h2>Responsabilité unique</h2>
+		<ul class="steps">
+			<li>
+				<i class="icon-ok"></i>
+				Uniquement garantir la non régression
+			</li>
+			<li>
+				<i class="icon-warning-sign"></i>
+				 Golden master != tests maintenables
+			</li>
+			<li>
+				<i class="icon-ok"></i>
+				GM = béquille à jetter une fois le refactoring terminé
+			</li>
+		</ul>
+    </section>
+       <section id="demo">
+		<h1>Démo time</h1>
+		<ul>
+			<li>
+				<i class="icon-ok"></i>
+				Guilded roses
+			</li>
+			<li>
+				<i class="icon-ok"></i>
+				Approval tests
+			</li>
+			<li>
+				<i class="icon-ok"></i>
+				Refactoring des fiches anyone ?
+			</li>
+		</ul>
+	</section>
+    <section id="enVRAC">
+		<h1>Next topics</h1>
+		<ul style="font-size:35px;">
+			<li><i class="icon-ok"></i>DDD : bounding context</li>
+			<li><i class="icon-ok"></i>Externaliser la conf dans des variables d'environnement</li>
+			<li><i class="icon-ok"></i>Comparaison de PDF avec approval</li>
+			<li><i class="icon-ok"></i>Identifier les irritants : qu'est ce qui vous gène le plus au quotidien ? (moi : MySQL Dev & t3.properties)</li>
+			<li><i class="icon-ok"></i>Custom rules sonar : file too big (> 800 lignes); //TODO sans # de ticket</li>
+			<li><i class="icon-ok"></i>Chaos monkey front : Gremlins.js</li>
+			<li><i class="icon-ok"></i>Capristrano : Outil de déploiement</li>
+			<li><i class="icon-ok"></i>BrowserSync : Synchroniser l'interaction avec plein de navigateurs ouverts</li>
+			<li><i class="icon-ok"></i>Pouvoir récupérer les logs de prod</li>
+		</ul>
+    </section>
+
+
+<!-- ATOOOOOS -->
+
+  <script src="components/jquery/jquery.min.js"></script>
+  <script src="components/keymaster/keymaster.min.js"></script>
+  <script src="components/hammerjs/dist/hammer.min.js"></script>
+  <script src="components/highlightjs/highlight.pack.js"></script>
+  <script src="components/ruban/dist/ruban.min.js"></script>
+  <script>
+    new Ruban();
+  </script>
+</body>
+</html>
